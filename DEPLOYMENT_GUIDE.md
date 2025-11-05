@@ -9,9 +9,40 @@ Before deploying, ensure:
 - ✅ All tests pass
 - ✅ Code is committed and pushed to GitHub
 
+## Quick Links
+
+- 🚀 **[Azure Deployment (FREE)](AZURE_DEPLOYMENT.md)** - Detailed Azure Static Web Apps guide
+- ⚡ Vercel - Fast deployment (below)
+- 🌐 Netlify - Alternative option (below)
+- 📄 GitHub Pages - Simple and free (below)
+
 ## Deployment Options
 
-### Option 1: Vercel (Recommended - Fastest & Easiest)
+### Option 1: Azure Static Web Apps (FREE - Recommended for Azure users)
+
+**See [AZURE_DEPLOYMENT.md](AZURE_DEPLOYMENT.md) for complete Azure deployment guide.**
+
+Azure Static Web Apps offers a generous free tier perfect for this application:
+- ✅ **100% Free** - No credit card required
+- ✅ **100 GB bandwidth/month** - More than enough
+- ✅ **Automatic CI/CD** - GitHub Actions included
+- ✅ **Custom domains** - Free SSL certificates
+- ✅ **PR preview environments** - Test before merging
+
+**Quick Start:**
+1. Go to https://portal.azure.com
+2. Create a resource → "Static Web Apps"
+3. Select Free tier
+4. Connect to GitHub repository
+5. Set app location: `/jays-footy-stats`
+6. Set output location: `dist`
+7. Deploy!
+
+Configuration files included: `staticwebapp.config.json`, `.github/workflows/azure-static-web-apps.yml`
+
+---
+
+### Option 2: Vercel (Fast & Easy)
 
 Vercel provides the best experience for Vite/React applications with automatic deployments.
 

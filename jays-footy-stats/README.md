@@ -4,12 +4,15 @@ An AFL statistics tracking Progressive Web App (PWA) for junior Under 13's playe
 
 ## 🚀 Deployment Status
 
-This application is ready for deployment! See [DEPLOYMENT_GUIDE.md](../DEPLOYMENT_GUIDE.md) in the root directory for complete deployment instructions.
+This application is ready for deployment! Multiple free deployment options available.
 
-**Quick Deploy Options:**
-- **Vercel** (Recommended): [Deploy to Vercel →](https://vercel.com/new/clone?repository-url=https://github.com/MattShadboltMSFT/mattsha&root-directory=jays-footy-stats)
+**🎯 Quick Deploy Options (All FREE):**
+- **Azure Static Web Apps** (FREE): [Complete Guide →](../AZURE_DEPLOYMENT.md) - 100% free, no credit card
+- **GitHub Pages** (FREE): [Enable in Settings →](#deployment) - Simplest free option
+- **Vercel**: [Deploy to Vercel →](https://vercel.com/new/clone?repository-url=https://github.com/MattShadboltMSFT/mattsha&root-directory=jays-footy-stats)
 - **Netlify**: [Deploy to Netlify →](https://app.netlify.com/start/deploy?repository=https://github.com/MattShadboltMSFT/mattsha)
-- **GitHub Pages**: See workflow in `.github/workflows/deploy.yml`
+
+📖 See [DEPLOYMENT_GUIDE.md](../DEPLOYMENT_GUIDE.md) for all deployment options
 
 ## Features
 
