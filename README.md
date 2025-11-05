@@ -16,10 +16,15 @@ Jays Footy Stats is a simple, user-friendly application designed to help parents
 - 📱 Mobile-first design
 - 💾 Offline capability
 - 📤 Data export (CSV/PDF)
+- 🧪 Test data import (2025 season fixture)
 
 ## Documentation
 
 - **[Product Specification](PRODUCT_SPEC.md)** - Complete product requirements and design specifications
+- **[Test Data Specification](TEST_DATA_SPEC.md)** - Test data import feature with 2025 fixture
+- **[Requirements Summary](REQUIREMENTS_SUMMARY.md)** - Quick reference for engineering team
+- **[Engineering Handoff](ENGINEERING_HANDOFF.md)** - Sprint breakdown and technical guidance
+- **[Stakeholder Summary](STAKEHOLDER_SUMMARY.md)** - Executive overview
 
 ## Target Users
 - Parents tracking their child's AFL development

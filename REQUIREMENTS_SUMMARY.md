@@ -35,6 +35,7 @@ Quick reference for engineering team. See [PRODUCT_SPEC.md](PRODUCT_SPEC.md) for
 - Offline mode support
 - Local data storage
 - Data export (CSV/PDF)
+- Test data import (fixture-based dummy data)
 
 ## UI Requirements
 
@@ -97,6 +98,30 @@ Quick reference for engineering team. See [PRODUCT_SPEC.md](PRODUCT_SPEC.md) for
   notes: string (optional)
 }
 ```
+
+## Test Data Import Feature
+
+### Purpose
+Enable testing and demonstration of the app with realistic data before the season starts.
+
+### Requirements
+- Import fixture data from previous season (e.g., PlayHQ export)
+- Populate matches with:
+  - Match dates and opponents from fixture
+  - Venues
+  - Sample statistics (randomized but realistic)
+- Support bulk import (entire season)
+- Ability to clear/reset test data
+- Should not interfere with real match data entry
+
+### Data Source Example
+Previous season fixture from PlayHQ (e.g., Mordi-Brae U12 Mixed Williams 2024 season)
+
+### Use Cases
+- Development testing
+- User acceptance testing
+- Demonstrations to stakeholders
+- Parent/coach preview of dashboard features
 
 ## Nice to Have (Future)
 - Multiple player profiles

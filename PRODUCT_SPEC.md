@@ -72,6 +72,17 @@ AFL stat tracking application for individual junior players to monitor performan
 - Shareable summary reports
 - End-of-season report card
 
+### 6. Test Data Import
+- **Import dummy data for testing and development**
+  - Load 2025 season fixture data (17 matches)
+  - Includes match dates, opponents, venues, and results
+  - Auto-generate realistic player statistics for each match
+  - Based on actual Mordi-Brae U12 Mixed WILLIAMS fixture
+  - Useful for testing UI/dashboard before season starts
+  - Clear/reset test data functionality
+  - Test data clearly marked/separated from real matches
+  - See [TEST_DATA_SPEC.md](TEST_DATA_SPEC.md) for complete specification
+
 ---
 
 ## UI/UX Requirements

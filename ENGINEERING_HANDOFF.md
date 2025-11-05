@@ -101,6 +101,10 @@
 - [ ] Data model implementation
 - [ ] Local storage setup
 - [ ] Basic routing
+- [ ] Test data import feature (see TEST_DATA_SPEC.md)
+  - [ ] 2025 fixture data (17 matches)
+  - [ ] Stat generation algorithm
+  - [ ] Clear test data function
 
 ### Sprint 2 (Week 3-4): Core Features
 - [ ] Match entry form with stat counters
