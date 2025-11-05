@@ -13,6 +13,7 @@ import {
 } from 'chart.js';
 import { useApp } from '../context/AppContext';
 import { getSeasonStats } from '../services/matchService';
+import { exportToCSV, exportToPDF } from '../services/exportService';
 
 ChartJS.register(
   CategoryScale,
@@ -116,6 +117,22 @@ export default function DashboardPage() {
     },
   };
 
+  const handleExportCSV = () => {
+    try {
+      exportToCSV(stats.matches, player.name, player.season);
+    } catch (error) {
+      alert('Failed to export CSV: ' + error.message);
+    }
+  };
+
+  const handleExportPDF = () => {
+    try {
+      exportToPDF(stats.matches, player.name, player.teamName, player.season, stats);
+    } catch (error) {
+      alert('Failed to export PDF: ' + error.message);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
@@ -140,6 +157,22 @@ export default function DashboardPage() {
           <div className="text-center mb-4">
             <p className="text-gray-600 text-sm">Total Games Played</p>
             <p className="text-5xl font-bold text-afl-red">{stats.totalGames}</p>
+          </div>
+
+          {/* Export Buttons */}
+          <div className="grid grid-cols-2 gap-3 mt-4">
+            <button
+              onClick={handleExportCSV}
+              className="bg-grass-green text-white py-3 px-4 rounded-lg font-semibold hover:bg-green-700 transition text-sm"
+            >
+              📊 Export CSV
+            </button>
+            <button
+              onClick={handleExportPDF}
+              className="bg-afl-red text-white py-3 px-4 rounded-lg font-semibold hover:bg-red-700 transition text-sm"
+            >
+              📄 Export PDF
+            </button>
           </div>
         </div>
 

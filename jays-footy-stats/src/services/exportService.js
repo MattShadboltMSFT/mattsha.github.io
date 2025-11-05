@@ -1,0 +1,175 @@
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import { format } from 'date-fns';
+
+// Export match data to CSV
+export function exportToCSV(matches, playerName, season) {
+  if (matches.length === 0) {
+    throw new Error('No matches to export');
+  }
+
+  // CSV Header
+  const headers = [
+    'Date',
+    'Opponent',
+    'Venue',
+    'Position',
+    'Result',
+    'Quarters Played',
+    'Kicks',
+    'Handballs',
+    'Marks',
+    'Goals',
+    'Behinds',
+    'Tackles',
+    'Spoils',
+    'Smothers',
+    'Interceptions',
+    'Frees For',
+    'Frees Against',
+    'Notes'
+  ];
+
+  // CSV Rows
+  const rows = matches.map(match => [
+    format(new Date(match.date), 'yyyy-MM-dd'),
+    match.opponent,
+    match.venue,
+    match.position,
+    match.result,
+    match.quartersPlayed,
+    match.stats.kicks,
+    match.stats.handballs,
+    match.stats.marks,
+    match.stats.goals,
+    match.stats.behinds,
+    match.stats.tackles,
+    match.stats.spoils,
+    match.stats.smothers,
+    match.stats.interceptions,
+    match.stats.freesFor,
+    match.stats.freesAgainst,
+    match.notes.replace(/[\r\n]+/g, ' ') // Remove line breaks from notes
+  ]);
+
+  // Build CSV
+  const csvContent = [
+    headers.join(','),
+    ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+  ].join('\n');
+
+  // Download
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  
+  link.setAttribute('href', url);
+  link.setAttribute('download', `${playerName.replace(/\s+/g, '_')}_Season_${season}_Stats.csv`);
+  link.style.visibility = 'hidden';
+  
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Export season report to PDF
+export function exportToPDF(matches, playerName, teamName, season, seasonStats) {
+  if (matches.length === 0) {
+    throw new Error('No matches to export');
+  }
+
+  const doc = new jsPDF();
+  
+  // Title
+  doc.setFontSize(20);
+  doc.setTextColor(226, 24, 55); // AFL Red
+  doc.text(`${playerName} - Season ${season}`, 14, 22);
+  
+  doc.setFontSize(12);
+  doc.setTextColor(0, 0, 0);
+  doc.text(teamName, 14, 30);
+  doc.text(`Generated: ${format(new Date(), 'dd MMM yyyy')}`, 14, 36);
+  
+  // Season Summary
+  doc.setFontSize(14);
+  doc.setFont(undefined, 'bold');
+  doc.text('Season Summary', 14, 48);
+  
+  doc.setFontSize(10);
+  doc.setFont(undefined, 'normal');
+  doc.text(`Total Games: ${seasonStats.totalGames}`, 14, 56);
+  doc.text(`Total Goals: ${seasonStats.stats.goals}`, 14, 62);
+  doc.text(`Total Kicks: ${seasonStats.stats.kicks}`, 14, 68);
+  doc.text(`Total Marks: ${seasonStats.stats.marks}`, 14, 74);
+  
+  // Averages
+  doc.setFontSize(14);
+  doc.setFont(undefined, 'bold');
+  doc.text('Per Game Averages', 110, 48);
+  
+  doc.setFontSize(10);
+  doc.setFont(undefined, 'normal');
+  doc.text(`Kicks: ${seasonStats.averages.kicks}`, 110, 56);
+  doc.text(`Handballs: ${seasonStats.averages.handballs}`, 110, 62);
+  doc.text(`Marks: ${seasonStats.averages.marks}`, 110, 68);
+  doc.text(`Goals: ${seasonStats.averages.goals}`, 110, 74);
+  
+  // Match Table
+  doc.setFontSize(14);
+  doc.setFont(undefined, 'bold');
+  doc.text('Match History', 14, 88);
+  
+  const tableData = matches.map(match => [
+    format(new Date(match.date), 'dd/MM/yy'),
+    match.opponent,
+    match.result,
+    match.stats.goals.toString(),
+    match.stats.kicks.toString(),
+    match.stats.handballs.toString(),
+    match.stats.marks.toString(),
+    match.stats.tackles.toString()
+  ]);
+  
+  doc.autoTable({
+    startY: 94,
+    head: [['Date', 'Opponent', 'Result', 'G', 'K', 'H', 'M', 'T']],
+    body: tableData,
+    theme: 'striped',
+    headStyles: { fillColor: [226, 24, 55] }, // AFL Red
+    styles: { fontSize: 8, cellPadding: 2 },
+    columnStyles: {
+      0: { cellWidth: 20 },
+      1: { cellWidth: 50 },
+      2: { cellWidth: 20 },
+      3: { cellWidth: 12 },
+      4: { cellWidth: 12 },
+      5: { cellWidth: 12 },
+      6: { cellWidth: 12 },
+      7: { cellWidth: 12 }
+    }
+  });
+  
+  // Personal Bests
+  const finalY = doc.lastAutoTable.finalY + 10;
+  if (finalY < 270) { // Check if there's space on the page
+    doc.setFontSize(14);
+    doc.setFont(undefined, 'bold');
+    doc.text('Personal Bests', 14, finalY);
+    
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+    doc.text(`Goals: ${seasonStats.personalBests.goals}`, 14, finalY + 8);
+    doc.text(`Kicks: ${seasonStats.personalBests.kicks}`, 14, finalY + 14);
+    doc.text(`Marks: ${seasonStats.personalBests.marks}`, 14, finalY + 20);
+    doc.text(`Tackles: ${seasonStats.personalBests.tackles}`, 80, finalY + 8);
+    doc.text(`Handballs: ${seasonStats.personalBests.handballs}`, 80, finalY + 14);
+  }
+  
+  // Footer
+  doc.setFontSize(8);
+  doc.setTextColor(128, 128, 128);
+  doc.text('Generated by Jays Footy Stats', 14, 285);
+  
+  // Download
+  doc.save(`${playerName.replace(/\s+/g, '_')}_Season_${season}_Report.pdf`);
+}
