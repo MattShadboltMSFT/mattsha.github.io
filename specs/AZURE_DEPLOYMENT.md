@@ -242,7 +242,7 @@ If you prefer GitHub Pages instead of Azure:
    - Check Actions tab for status
 
 3. **Access Your App**
-   - URL: `https://mattshadboltmsft.github.io/mattshadboltmsft.github.io/`
+   - URL: `https://mattshadboltmsft.github.io/`
    - Or custom domain if configured
 
 **Workflow File**: `.github/workflows/deploy.yml` ✅ Already configured!

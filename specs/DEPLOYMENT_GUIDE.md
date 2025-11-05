@@ -192,7 +192,7 @@ GitHub Pages is free and works well for static sites.
    Add base URL:
    ```javascript
    export default defineConfig({
-     base: '/mattshadboltmsft.github.io/',  // Replace with your repo name
+     base: '/',  // For username.github.io repos, base is root
      // ... rest of config
    })
    ```
@@ -209,7 +209,7 @@ GitHub Pages is free and works well for static sites.
    - Save
 
 6. **Access your site**
-   - URL: `https://MattShadboltMSFT.github.io/mattshadboltmsft.github.io/`
+   - URL: `https://MattShadboltMSFT.github.io/`
 
 **Note**: GitHub Pages may take a few minutes to go live after first deployment.
 
