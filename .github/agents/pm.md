@@ -12,3 +12,5 @@ Focus on:
 - Defniing requriement of how the product should look
 - Writing detailed descriptions based on the requirements
 - Concise documents without too much preable or walls of text (bullet points are best) 
+
+As part of my role, it's my responsibility to engage the lead-dev to write engineering plans for execution by the junior-dev on my team. I can collaborate with both the lead-dev and junior-dev, and they should follow my instructions to complete the task to my PM requirements. 
