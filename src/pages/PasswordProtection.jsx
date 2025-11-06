@@ -87,8 +87,8 @@ export default function PasswordProtection({ onAuthenticated }) {
                       src="/images/jay.png"
                       alt="Jay"
                       style={{
-                        width: '4rem',
-                        height: '4rem',
+                        width: '8rem',
+                        height: '8rem',
                         objectFit: 'contain',
                         display: 'block'
                       }}
