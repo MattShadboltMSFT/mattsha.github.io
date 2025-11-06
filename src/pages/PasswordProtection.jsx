@@ -70,10 +70,11 @@ export default function PasswordProtection({ onAuthenticated }) {
             <CardContent sx={{ p: 6 }}>
               <Box sx={{ textAlign: 'center', mb: 4 }}>
                 <Fade in={true} timeout={800}>
-                  <Typography
-                    variant="h1"
+                  <Box
                     sx={{
-                      fontSize: '4rem',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
                       mb: 2,
                       animation: 'float 3s ease-in-out infinite',
                       '@keyframes float': {
@@ -82,8 +83,17 @@ export default function PasswordProtection({ onAuthenticated }) {
                       }
                     }}
                   >
-                    ⚽
-                  </Typography>
+                    <img
+                      src="src/images/jay.png"
+                      alt="Jay"
+                      style={{
+                        width: '4rem',
+                        height: '4rem',
+                        objectFit: 'contain',
+                        display: 'block'
+                      }}
+                    />
+                  </Box>
                 </Fade>
                 <Typography variant="h4" gutterBottom fontWeight={700} color="primary">
                   Jay's Footy Stats
