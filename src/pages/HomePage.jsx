@@ -93,7 +93,7 @@ export default function HomePage() {
         <Container maxWidth="lg">
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       <img
-                      src="/images/jay.png"
+                      src="./src/images/jay.png"
                       alt="Jay"
                       style={{
                         width: '4rem',
