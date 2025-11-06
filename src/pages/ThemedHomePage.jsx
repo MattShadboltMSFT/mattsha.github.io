@@ -71,6 +71,10 @@ export default function ThemedHomePage() {
   const getBackgroundClass = () => {
     if (currentTheme === 'vibrantGradient') {
       return `min-h-screen bg-gradient-to-br ${theme.colors.bgPrimary}`;
+    } else if (currentTheme === 'minimalistClean') {
+      return `min-h-screen ${theme.colors.bgPrimary}`;
+    } else if (currentTheme === 'materialDesign') {
+      return `min-h-screen ${theme.colors.bgPrimary}`;
     }
     return `min-h-screen ${theme.colors.bgPrimary}`;
   };

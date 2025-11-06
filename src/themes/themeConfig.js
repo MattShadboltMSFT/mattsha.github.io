@@ -49,7 +49,7 @@ export const themes = {
     colors: {
       // Background colors
       bgPrimary: 'bg-gray-50',
-      bgSecondary: 'bg-white',
+      bgSecondary: 'bg-blue-600',
       bgCard: 'bg-white border-gray-200',
       bgCardHover: 'hover:shadow-lg hover:border-gray-300',
       
