@@ -122,8 +122,8 @@ export default function MatchHistoryPage() {
                   <div className="text-right">
                     <div className={`font-bold text-sm px-3 py-1 ${theme.styles.badge} ${
                       match.result === 'Win' ? theme.colors.statSuccess :
-                      match.result === 'Loss' ? theme.colors.statError :
-                      match.result === 'Draw' ? theme.colors.statWarning :
+                      match.result === 'Loss' ? theme.colors.statWarning :
+                      match.result === 'Draw' ? theme.colors.statInfo :
                       theme.colors.textSecondary
                     }`}>
                       {match.result}
@@ -177,7 +177,7 @@ export default function MatchHistoryPage() {
                       </Link>
                       <button
                         onClick={() => handleDelete(match.id)}
-                        className={`flex-1 py-2 px-4 ${theme.colors.statError} ${theme.styles.button} text-sm font-medium`}
+                        className={`flex-1 py-2 px-4 ${theme.colors.statWarning} ${theme.styles.button} text-sm font-medium`}
                       >
                         Delete
                       </button>

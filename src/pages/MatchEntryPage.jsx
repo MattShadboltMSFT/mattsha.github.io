@@ -111,7 +111,7 @@ export default function MatchEntryPage() {
         <button
           type="button"
           onClick={() => updateStat(statName, -1)}
-          className={`${theme.colors.statError} w-12 h-12 rounded-full text-2xl font-bold ${theme.styles.button}`}
+          className={`${theme.colors.statWarning} w-12 h-12 rounded-full text-2xl font-bold ${theme.styles.button}`}
         >
           -
         </button>

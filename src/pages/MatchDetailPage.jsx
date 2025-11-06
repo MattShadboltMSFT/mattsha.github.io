@@ -102,8 +102,8 @@ export default function MatchDetailPage() {
             </div>
             <div className={`font-bold text-lg px-4 py-2 ${theme.styles.badge} ${
               match.result === 'Win' ? theme.colors.statSuccess :
-              match.result === 'Loss' ? theme.colors.statError :
-              match.result === 'Draw' ? theme.colors.statWarning :
+              match.result === 'Loss' ? theme.colors.statWarning :
+              match.result === 'Draw' ? theme.colors.statInfo :
               theme.colors.textSecondary
             }`}>
               {match.result}
