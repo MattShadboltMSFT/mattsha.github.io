@@ -3,6 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { getSeasonStats, getAllMatches } from '../services/matchService';
 import { hasTestData, loadTestData, clearAllTestData } from '../services/testDataService';
+import jayImage from '../images/jay.png';
 import {
   Box,
   Container,
@@ -93,7 +94,7 @@ export default function HomePage() {
         <Container maxWidth="lg">
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       <img
-                      src="./src/images/jay.png"
+                      src={jayImage}
                       alt="Jay"
                       style={{
                         width: '4rem',

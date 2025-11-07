@@ -11,6 +11,7 @@ import {
   Fade,
   Zoom
 } from '@mui/material';
+import jayImage from '../images/jay.png';
 
 export default function PasswordProtection({ onAuthenticated }) {
   const [password, setPassword] = useState('');
@@ -84,7 +85,7 @@ export default function PasswordProtection({ onAuthenticated }) {
                     }}
                   >
                     <img
-                      src="./src/images/jay.png"
+                      src={jayImage}
                       alt="Jay"
                       style={{
                         width: '8rem',
